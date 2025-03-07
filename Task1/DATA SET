@@ -1,1 +1,42 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 
+# Sample aggregated data based on the insights
+data = {
+    'Discipline': ['Engineering'],
+    'Male_Students': [66],  # Percentage
+    'Female_Students': [34]  # Percentage
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Melt the DataFrame for easier plotting
+df_melted = df.melt(id_vars='Discipline', var_name='Gender', value_name='Percentage')
+
+# Plotting
+plt.figure(figsize=(8, 6))
+sns.barplot(x='Discipline', y='Percentage', hue='Gender', data=df_melted, palette='pastel')
+plt.title('Gender Distribution in Engineering Discipline in India')
+plt.ylabel('Percentage')
+plt.xlabel('Discipline')
+plt.ylim(0, 100)
+plt.show()
+import numpy as np
+
+# Generate synthetic age data
+np.random.seed(42)
+ages = np.random.randint(18, 24, 1000)  # 1000 students aged between 18 and 23
+
+# Create DataFrame
+df_ages = pd.DataFrame({'Age': ages})
+
+# Plotting
+plt.figure(figsize=(8, 6))
+sns.histplot(df_ages['Age'], bins=6, kde=True, color='skyblue')
+plt.title('Synthetic Age Distribution of BTech Students in India')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.show()
+Prodigy-Info-Tech/Task1/prodigy_infotech_Task1 at 38b26534941864478bfb3c35ad8bd6f96bd51eae ·
